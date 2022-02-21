@@ -1,1 +1,1 @@
-java -jar build/libs/todo-1.0.0-SNAPSHOT.jar --server.port=$PORT
+web: java -jar build/libs/todo-1.0.0-SNAPSHOT.jar --server.port=$PORT
