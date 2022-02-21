@@ -1,1 +1,1 @@
-web: java -jar build/libs/todo-1.0.0-SNAPSHOT.jar
+java -jar build/libs/todo-1.0.0-SNAPSHOT.jar
