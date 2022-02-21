@@ -3,23 +3,21 @@ package com.example.todo
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import java.util.*
 
 @RestController
 @RequestMapping("/v1")
-class TodoController (
-    private val noteRepository: NoteRepository) {
+class TodoController () {
 
     @GetMapping("/notes")
     fun getAllNotes(): ResponseEntity<List<NoteResponse>> {
-        val notes = noteRepository.findAll()
+        val notes = arrayListOf<NoteResponse>()
         return ResponseEntity.ok(notes)
     }
 
     @PostMapping("/note")
     fun createNote(@RequestBody noteRequest: NoteRequest): ResponseEntity<NoteResponse> {
-        val note = noteRepository.save(NoteResponse(
-            title = noteRequest.title
-        ))
+        val note = NoteResponse(UUID.randomUUID().toString(),"TITLE")
         return ResponseEntity(note, HttpStatus.CREATED)
     }
 }
